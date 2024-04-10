@@ -2,3 +2,18 @@ body {
     background-color: #00fbff;
     color: #013e67;
 }
+
+main {
+    display: flex;
+}
+
+#title-section {
+    width: 80vw;
+    
+}
+
+#game-window {
+    height: 50vh;
+    width:  80vw;
+    border: 5px black solid;
+}
