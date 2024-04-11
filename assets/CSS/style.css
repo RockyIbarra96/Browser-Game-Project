@@ -29,4 +29,27 @@ main {
     width:  80vw;
     border-radius: 20%;
     background-color: #F5F5DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#game-board {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 40vh;
+    width: 40vw;
+}
+
+.grid-item {
+    border: 1px black solid;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}
+
+
+
