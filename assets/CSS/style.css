@@ -49,7 +49,23 @@ main {
     align-items: center;
     justify-content: center;
     font-size: 100px;
+    display: none;
 }
 
+#start-btn {
+    height: 10vh;
+    width: 20vw;
+    font-size: 60px;
+    position: relative;
+    left: 250px;
+}
+
+#how-to-play-btn {
+    height: 10vh;
+    width: 20vw;
+    font-size: 60px;
+    position: relative;
+    left: 500px;
+}
 
 
