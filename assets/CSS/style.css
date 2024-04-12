@@ -68,4 +68,24 @@ main {
     left: 500px;
 }
 
+#how-to-screen {
+    display: none;
+    color: black;
+    height: 20vh;
+    width: 40vw;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 40px;
+}
+
+#go-back-btn {
+    height: 5vh;
+    width: 10vw;
+    font-size: 40px;
+}
 

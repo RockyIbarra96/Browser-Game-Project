@@ -7,6 +7,7 @@ function startGame(){
    let startBtn = document.getElementById('start-btn');
    let howToBtn = document.getElementById('how-to-play-btn');
    let gameGridItems = document.getElementsByClassName('grid-item');
+   let howToScreen = document.getElementById('how-to-screen');
     startBtn.addEventListener("click", () => {
         startBtn.style.display = 'none';
         howToBtn.style.display = 'none';
@@ -17,6 +18,7 @@ function startGame(){
     howToBtn.addEventListener("click", () => {
         howToBtn.style.display = 'none';
         startBtn.style.display = 'none';
+        howToScreen.style.display = 'block';
         })
 }
 startGame()
