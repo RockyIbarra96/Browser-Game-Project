@@ -1,15 +1,17 @@
+const playerOne = 'x'
+const playerTwo = 'o'
 
-
+let startBtn = document.getElementById('start-btn');
+let howToBtn = document.getElementById('how-to-play-btn');
+let gameGridItems = document.getElementsByClassName('grid-item');
+let gameGridItemsArray = Array.from(gameGridItems);
+let howToScreen = document.getElementById('how-to-screen');
+let goBackBtn = document.getElementById('go-back-btn');
 
 
 /*Start Up button and function */
-function startGame(){
-   let startBtn = document.getElementById('start-btn');
-   let howToBtn = document.getElementById('how-to-play-btn');
-   let gameGridItems = document.getElementsByClassName('grid-item');
-   let howToScreen = document.getElementById('how-to-screen');
-   let goBackBtn = document.getElementById('go-back-btn');
-
+function pageLoad(){
+   
    /*Start Button to Game Grid */
     startBtn.addEventListener("click", () => {
         startBtn.style.display = 'none';
@@ -18,6 +20,7 @@ function startGame(){
             gameGridItems[i].style.display = 'block'; 
         }
     })
+
     /*How to Play Button */
     howToBtn.addEventListener("click", () => {
         howToBtn.style.display = 'none';
@@ -30,8 +33,23 @@ function startGame(){
         startBtn.style.display = 'block';
         howToBtn.style.display = 'block';
     })
+
+    gameGridItemsArray.forEach((item) => {
+        item.addEventListener("click", () => {
+            if(!item.querySelector('img')) {
+                let image = document.createElement('img');
+                image.src = 'assets/images/xicon.png';
+                image.style.width = '150px';
+                image.style.height = '150px';
+                image.style.position = 'relative';
+                image.style.left = '20%';
+                image.style.top = '10%';
+                item.appendChild(image);
+            }
+        })
+    })
 }
-startGame()
+pageLoad()
 
 
 
