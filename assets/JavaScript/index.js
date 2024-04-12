@@ -1,22 +1,25 @@
 
-const playerOne = 'x'
-const playerTwo = 'circle'
-const winningCombinations = [
-	[0, 1, 2],
-	[3, 4, 5],
-	[6, 7, 8],
-	[0, 3, 6],
-	[1, 4, 7],
-	[2, 5, 8],
-	[0, 4, 8],
-	[2, 4, 6]
-]
-
 
 
 
 /*Start Up button and function */
-
+function startGame(){
+   let startBtn = document.getElementById('start-btn');
+   let howToBtn = document.getElementById('how-to-play-btn');
+   let gameGridItems = document.getElementsByClassName('grid-item');
+    startBtn.addEventListener("click", () => {
+        startBtn.style.display = 'none';
+        howToBtn.style.display = 'none';
+        for (let i = 0; i < gameGridItems.length; i++) {
+            gameGridItems[i].style.display = 'block'; 
+        }
+    })
+    howToBtn.addEventListener("click", () => {
+        howToBtn.style.display = 'none';
+        startBtn.style.display = 'none';
+        })
+}
+startGame()
 
 /*How to Play Button */
 
