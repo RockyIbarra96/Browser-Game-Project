@@ -89,3 +89,33 @@ p {
     font-size: 40px;
 }
 
+#result-message {
+    height: 20vh;
+    width: 90vw;
+    background-color: beige;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+
+}
+
+#winner-message, #lose-message, #draw-message {
+    font-size: 100px;
+    color: red;
+}
+
+#winner-message {
+    display: none;
+}
+
+#lose-message {
+    display: none;
+}
+
+#draw-message {
+    display: none;
+}
+
