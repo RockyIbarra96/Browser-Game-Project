@@ -8,6 +8,9 @@ function startGame(){
    let howToBtn = document.getElementById('how-to-play-btn');
    let gameGridItems = document.getElementsByClassName('grid-item');
    let howToScreen = document.getElementById('how-to-screen');
+   let goBackBtn = document.getElementById('go-back-btn');
+
+   /*Start Button to Game Grid */
     startBtn.addEventListener("click", () => {
         startBtn.style.display = 'none';
         howToBtn.style.display = 'none';
@@ -15,15 +18,22 @@ function startGame(){
             gameGridItems[i].style.display = 'block'; 
         }
     })
+    /*How to Play Button */
     howToBtn.addEventListener("click", () => {
         howToBtn.style.display = 'none';
         startBtn.style.display = 'none';
         howToScreen.style.display = 'block';
         })
+    /*Go Back Button functionality */
+    goBackBtn.addEventListener("click", () => {
+        howToScreen.style.display = 'none';
+        startBtn.style.display = 'block';
+        howToBtn.style.display = 'block';
+    })
 }
 startGame()
 
-/*How to Play Button */
+
 
 
 /*Congratulations Message */
