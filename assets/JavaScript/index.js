@@ -1,5 +1,5 @@
-const playerOne = 'x'
-const playerTwo = 'o'
+const playerOneSymbol = 'assets/images/xicon.png'
+const playerTwoSymbol = 'assets/images/Oicon.png'
 
 let startBtn = document.getElementById('start-btn');
 let howToBtn = document.getElementById('how-to-play-btn');
@@ -7,6 +7,38 @@ let gameGridItems = document.getElementsByClassName('grid-item');
 let gameGridItemsArray = Array.from(gameGridItems);
 let howToScreen = document.getElementById('how-to-screen');
 let goBackBtn = document.getElementById('go-back-btn');
+
+
+
+/*Congratulations Message */
+function checkWin() {
+    const winningCombos = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+
+    // Extract symbols from gameGridItemsArray
+    let symbols = gameGridItemsArray.map(item => {
+        if (item.querySelector('img')) {
+            return item.querySelector('img').src;
+        } else {
+            return ''; // Empty cell
+        }
+    });
+
+    // Check each winning combination
+    for (let combo of winningCombos) {
+        let [a, b, c] = combo;
+        // Check if all cells in the current combination have playerOneSymbol
+        if (symbols[a] === playerOneSymbol && symbols[b] === playerOneSymbol && symbols[c] === playerOneSymbol) {
+            let winMessage = document.getElementById('winner-message');
+            winMessage.style.display = 'block';
+            return true; // Player one has won
+        }
+    }
+    return false; // Player one has not won
+}
 
 
 /*Start Up button and function */
@@ -19,6 +51,7 @@ function pageLoad(){
         for (let i = 0; i < gameGridItems.length; i++) {
             gameGridItems[i].style.display = 'block'; 
         }
+
     })
 
     /*How to Play Button */
@@ -34,27 +67,71 @@ function pageLoad(){
         howToBtn.style.display = 'block';
     })
 
-    gameGridItemsArray.forEach((item) => {
+    
+}
+pageLoad()
+
+function gamePlay(){
+    gameGridItemsArray.forEach((item, index) => {
         item.addEventListener("click", () => {
             if(!item.querySelector('img')) {
-                let image = document.createElement('img');
-                image.src = 'assets/images/xicon.png';
-                image.style.width = '150px';
-                image.style.height = '150px';
-                image.style.position = 'relative';
-                image.style.left = '20%';
-                image.style.top = '10%';
-                item.appendChild(image);
+                let currentPlayerSymbol;
+                let p1Image = document.createElement('img');
+                p1Image.src = 'assets/images/xicon.png';
+                p1Image.style.width = '150px';
+                p1Image.style.height = '150px';
+                p1Image.style.position = 'relative';
+                p1Image.style.left = '20%';
+                p1Image.style.top = '10%';
+                item.appendChild(p1Image);
+                currentPlayerSymbol = playerOneSymbol;
+
+                // Check if player one has won
+                if (checkWin(playerOneSymbol)) {
+                    console.log('Player One wins!');
+                    // Perform actions for player one winning
+                    return; // Exit function to prevent player two's turn
+                }
+
+                let emptyGridItems = gameGridItemsArray.filter(item => !item.querySelector('img'));
+                if(emptyGridItems.length > 0) {
+                    let randomIndex = Math.floor(Math.random() * emptyGridItems.length);
+                    let randomGridItem = emptyGridItems[randomIndex];
+            
+                    let p2Image = document.createElement('img');
+                    p2Image.src = 'assets/images/Oicon.png';
+                    p2Image.style.width = '120px';
+                    p2Image.style.height = '120px';
+                    p2Image.style.position = 'relative';
+                    p2Image.style.left = '30%';
+                    p2Image.style.top = '10%';
+                    randomGridItem.append(p2Image);
+
+                    currentPlayerSymbol = playerTwoSymbol;
+
+                    // Check if player two has won
+                    if (checkWin(playerTwoSymbol)) {
+                        console.log('Player Two wins!');
+                        // Perform actions for player two winning
+                        return; // Exit function
+                    }
+                }
             }
         })
     })
 }
-pageLoad()
+
+gamePlay();
 
 
 
 
-/*Congratulations Message */
+
+
+
+
+
+
 
 
 /*Loser Message */
