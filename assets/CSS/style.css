@@ -25,7 +25,7 @@ main {
 }
 
 #game-window {
-    height: 50vh;
+    height: 80vh;
     width:  80vw;
     border-radius: 20%;
     background-color: #F5F5DC;
@@ -38,8 +38,8 @@ main {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: 40vh;
-    width: 40vw;
+    height: 50vh;
+    width: 50vw;
 }
 
 .grid-item {
@@ -53,25 +53,35 @@ main {
 
 #start-btn {
     height: 10vh;
-    width: 20vw;
+    width: 30vw;
     font-size: 60px;
     position: relative;
     left: 250px;
+    /* display: none; */
 }
 
 #how-to-play-btn {
     height: 10vh;
-    width: 20vw;
+    width: 30vw;
     font-size: 60px;
     position: relative;
     left: 500px;
+    /* display: none; */
 }
 
 #how-to-screen {
-    display: none;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
     color: black;
     height: 20vh;
-    width: 40vw;
+    width: 60vw;
+    position: relative;
+    bottom: 100px;
+    right: 100px;
+    display: none;
 }
 
 h2 {
