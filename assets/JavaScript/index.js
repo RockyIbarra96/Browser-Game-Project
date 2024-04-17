@@ -39,6 +39,30 @@ function checkWin() {
             winMessage.style.display = 'block';
             return true; // Player one has won
         }
+        if (symbols[a] === playerTwoSymbol && symbols[b] === playerTwoSymbol && symbols[c] === playerTwoSymbol) {
+            console.log('flag')
+            let loseMessage = document.getElementById('lose-message');
+            let resultMessage = document.getElementById('result-message');
+            resultMessage.style.display = 'block';
+            loseMessage.style.display = 'block';
+            return true; // Player two has won
+        }
+        let counter = 0;
+        for(let i = 0; i <= symbols.length; i++) {
+            if(symbols[i] === (playerOneSymbol || playerTwoSymbol)) {
+                counter = counter + 2;
+                console.log(counter)
+                if(counter >= 9) {
+                    console.log('tie')
+                    let tieMessage = document.getElementById('draw-message');
+                    let resultMessage = document.getElementById('result-message');
+                    resultMessage.style.display = 'block';
+                    tieMessage.style.display = 'block';
+                }
+
+            }
+        }
+        console.log(symbols.length)
     }
     return false; // Player one has not won
 }
@@ -95,8 +119,7 @@ function gamePlay(){
                 // Check if player one has won
                 if (checkWin(currentPlayerSymbol) == true) {
                     console.log('Player One wins!');
-                    let winMessage = document.getElementById('winner-message');
-                    winMessage.style.display = 'block';
+                    
 
                     // Perform actions for player one winning
                     return; // Exit function to prevent player two's turn
@@ -118,12 +141,12 @@ function gamePlay(){
 
                     currentPlayerSymbol = playerTwoSymbol;
 
-                    // // Check if player two has won
-                    // if (checkWin(playerTwoSymbol) == false) {
-                    //     console.log('Player Two wins!');
-                    //     // Perform actions for player two winning
-                    //     return; // Exit function
-                    // }
+                    // Check if player two has won
+                    if (checkWin(playerTwoSymbol) == true) {
+                        console.log('Player Two wins!');
+                        // Perform actions for player two winning
+                        return; // Exit function
+                    }
                     
                 }
             }
