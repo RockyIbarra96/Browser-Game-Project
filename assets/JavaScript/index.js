@@ -1,5 +1,5 @@
-const playerOneSymbol = 'assets/images/xicon.png'
-const playerTwoSymbol = 'assets/images/Oicon.png'
+const playerOneSymbol = "file:///Users/rockyibarra/UNLV/JavaScript-course/submissions-js/Browser-Game-Project/assets/images/xicon.png"
+const playerTwoSymbol = "file:///Users/rockyibarra/UNLV/JavaScript-course/submissions-js/Browser-Game-Project/assets/images/Oicon.png"
 
 let startBtn = document.getElementById('start-btn');
 let howToBtn = document.getElementById('how-to-play-btn');
@@ -7,6 +7,8 @@ let gameGridItems = document.getElementsByClassName('grid-item');
 let gameGridItemsArray = Array.from(gameGridItems);
 let howToScreen = document.getElementById('how-to-screen');
 let goBackBtn = document.getElementById('go-back-btn');
+
+
 
 
 
@@ -30,8 +32,10 @@ function checkWin() {
     // Check each winning combination
     for (let combo of winningCombos) {
         let [a, b, c] = combo;
+        console.log(symbols)
         // Check if all cells in the current combination have playerOneSymbol
         if (symbols[a] === playerOneSymbol && symbols[b] === playerOneSymbol && symbols[c] === playerOneSymbol) {
+            console.log('flag')
             let winMessage = document.getElementById('winner-message');
             winMessage.style.display = 'block';
             return true; // Player one has won
@@ -39,6 +43,7 @@ function checkWin() {
     }
     return false; // Player one has not won
 }
+
 
 
 /*Start Up button and function */
@@ -77,7 +82,7 @@ function gamePlay(){
             if(!item.querySelector('img')) {
                 let currentPlayerSymbol;
                 let p1Image = document.createElement('img');
-                p1Image.src = 'assets/images/xicon.png';
+                p1Image.src = '/Users/rockyibarra/UNLV/JavaScript-course/submissions-js/Browser-Game-Project/assets/images/xicon.png';
                 p1Image.style.width = '150px';
                 p1Image.style.height = '150px';
                 p1Image.style.position = 'relative';
@@ -86,8 +91,10 @@ function gamePlay(){
                 item.appendChild(p1Image);
                 currentPlayerSymbol = playerOneSymbol;
 
+                
+
                 // Check if player one has won
-                if (checkWin(playerOneSymbol)) {
+                if (checkWin(currentPlayerSymbol) == true) {
                     console.log('Player One wins!');
                     // Perform actions for player one winning
                     return; // Exit function to prevent player two's turn
@@ -109,12 +116,13 @@ function gamePlay(){
 
                     currentPlayerSymbol = playerTwoSymbol;
 
-                    // Check if player two has won
-                    if (checkWin(playerTwoSymbol)) {
-                        console.log('Player Two wins!');
-                        // Perform actions for player two winning
-                        return; // Exit function
-                    }
+                    // // Check if player two has won
+                    // if (checkWin(playerTwoSymbol) == false) {
+                    //     console.log('Player Two wins!');
+                    //     // Perform actions for player two winning
+                    //     return; // Exit function
+                    // }
+                    
                 }
             }
         })
@@ -122,7 +130,6 @@ function gamePlay(){
 }
 
 gamePlay();
-
 
 
 
