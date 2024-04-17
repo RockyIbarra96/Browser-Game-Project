@@ -9,9 +9,6 @@ let howToScreen = document.getElementById('how-to-screen');
 let goBackBtn = document.getElementById('go-back-btn');
 
 
-
-
-
 /*Congratulations Message */
 function checkWin() {
     const winningCombos = [
@@ -37,6 +34,8 @@ function checkWin() {
         if (symbols[a] === playerOneSymbol && symbols[b] === playerOneSymbol && symbols[c] === playerOneSymbol) {
             console.log('flag')
             let winMessage = document.getElementById('winner-message');
+            let resultMessage = document.getElementById('result-message');
+            resultMessage.style.display = 'block';
             winMessage.style.display = 'block';
             return true; // Player one has won
         }
@@ -82,7 +81,7 @@ function gamePlay(){
             if(!item.querySelector('img')) {
                 let currentPlayerSymbol;
                 let p1Image = document.createElement('img');
-                p1Image.src = '/Users/rockyibarra/UNLV/JavaScript-course/submissions-js/Browser-Game-Project/assets/images/xicon.png';
+                p1Image.src = 'assets/images/xicon.png';
                 p1Image.style.width = '150px';
                 p1Image.style.height = '150px';
                 p1Image.style.position = 'relative';
@@ -96,6 +95,9 @@ function gamePlay(){
                 // Check if player one has won
                 if (checkWin(currentPlayerSymbol) == true) {
                     console.log('Player One wins!');
+                    let winMessage = document.getElementById('winner-message');
+                    winMessage.style.display = 'block';
+
                     // Perform actions for player one winning
                     return; // Exit function to prevent player two's turn
                 }
