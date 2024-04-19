@@ -1,7 +1,7 @@
 body {
     background-color: #00fbff;
     color: #faf0e6;
-    background-image: URL('../images/joshua-bartell-6vvIBTvL90A-unsplash.jpg');
+    background-image: URL('assets/images/joshua-bartell-6vvIBTvL90A-unsplash.jpg');
     background-repeat: repeat;
     background-size: cover;
     background-position: center;
