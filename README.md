@@ -32,6 +32,6 @@ will compete against the computer (player 2) to connect 3 in a row.
 
 XXX Replace the text below as you list with your own text then delete this line. XXX
 
-- One great idea I hope to be able to add in before the project deadline.
+- I would have liked to make the browser game more responsive.
 - Another that will be a stretch.
 - Something else I don't technically know how to do... *yet*. :)
