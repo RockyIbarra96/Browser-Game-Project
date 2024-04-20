@@ -8,7 +8,7 @@ The Game is Tic-Tac-Toe. I chose this game because it seemed the least complicat
 
 ## Deployment
 
-The web game is deployed at https://rockyibarra96.github.io/.
+The web game is deployed at https://rockyibarra96.github.io/tictactoe/
 
 
 ## Game Logic
@@ -29,7 +29,7 @@ will compete against the computer (player 2) to connect 3 in a row.
 
 ### Post-MVP Plans
 
-XXX Replace the text below as you list with your own text then delete this line. XXX
+
 
 - I would have liked to make the browser game more responsive.
 - Another that will be a stretch having the game keep score and putting in a restart button.
