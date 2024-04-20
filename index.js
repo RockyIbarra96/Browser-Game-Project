@@ -7,7 +7,10 @@ let gameGridItems = document.getElementsByClassName('grid-item');
 let gameGridItemsArray = Array.from(gameGridItems);
 let howToScreen = document.getElementById('how-to-screen');
 let goBackBtn = document.getElementById('go-back-btn');
-
+let winMessage = document.getElementById('winner-message');
+let tieMessage = document.getElementById('draw-message');
+let resultMessage = document.getElementById('result-message');
+let loseMessage = document.getElementById('lose-message');
 
 /*Congratulations Message */
 function checkWin() {
@@ -32,17 +35,11 @@ function checkWin() {
         console.log(symbols)
         // Check if all cells in the current combination have playerOneSymbol
         if (symbols[a] === playerOneSymbol && symbols[b] === playerOneSymbol && symbols[c] === playerOneSymbol) {
-            console.log('flag')
-            let winMessage = document.getElementById('winner-message');
-            let resultMessage = document.getElementById('result-message');
             resultMessage.style.display = 'block';
             winMessage.style.display = 'block';
             return true; // Player one has won
         }
         if (symbols[a] === playerTwoSymbol && symbols[b] === playerTwoSymbol && symbols[c] === playerTwoSymbol) {
-            console.log('flag')
-            let loseMessage = document.getElementById('lose-message');
-            let resultMessage = document.getElementById('result-message');
             resultMessage.style.display = 'block';
             loseMessage.style.display = 'block';
             return true; // Player two has won
@@ -54,8 +51,6 @@ function checkWin() {
                 console.log(counter)
                 if(counter >= 9) {
                     console.log('tie')
-                    let tieMessage = document.getElementById('draw-message');
-                    let resultMessage = document.getElementById('result-message');
                     resultMessage.style.display = 'block';
                     tieMessage.style.display = 'block';
                 }
