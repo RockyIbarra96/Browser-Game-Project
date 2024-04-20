@@ -1,5 +1,5 @@
-const playerOneSymbol = "file:///Users/rockyibarra/UNLV/JavaScript-course/submissions-js/Browser-Game-Project/assets/images/xicon.png"
-const playerTwoSymbol = "file:///Users/rockyibarra/UNLV/JavaScript-course/submissions-js/Browser-Game-Project/assets/images/Oicon.png"
+const playerOneSymbol = "https://rockyibarra96.github.io/tictactoe/assets/images/xicon.png"
+const playerTwoSymbol = "https://rockyibarra96.github.io/tictactoe/assets/images/Oicon.png"
 
 let startBtn = document.getElementById('start-btn');
 let howToBtn = document.getElementById('how-to-play-btn');
